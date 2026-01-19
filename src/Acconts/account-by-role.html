@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       <div>
+    <h1>Account by Role</h1>    
+      <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>ContactNo</td>
+                <td>Profile Pic</td>
+            </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>   
+    </div>
+
+    <script>
+            const baseUrl='https://trekdekashmirapi.logichubss.com/';
+            function loadAccounts() {
+              fetch(baseUrl+'api/accounts/by-role?userRole=1', {
+                    method:'GET'
+                }).then(response=>{
+                    return response.json();
+                }).then(data=>{
+                    console.log(data);
+                    let tbody = document.getElementById('tbody');
+                    if(data.isSuccess){
+                        const accountList=   data.result;
+                        console.log(accountList);
+                     accountList.forEach(account => {
+                        let tr = document.createElement('tr');
+                        tr.innerHTML = `
+                        <td>${account.name}</td>
+                        <td>${account.email}</td>
+                        <td>${account.contactNo}</td>
+                        <td>
+                            <img src="${baseUrl}${account.filePath}" alt="" >
+                            </td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                    }
+                  
+                })
+            }
+
+            loadAccounts();
+
+    </script>   
+</body>
+</html>

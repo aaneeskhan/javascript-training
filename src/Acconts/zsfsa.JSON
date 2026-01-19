@@ -1,0 +1,91 @@
+{
+  "isSuccess": true,
+  "statusCode": 200,
+  "message": "Success",
+  "result": [
+    {
+      "id": "fb2c8159-3f01-40d6-86c9-429eec3c1f4b",
+      "userName": "asim7",
+      "name": "Asim Hassan",
+      "gender": 0,
+      "email": "azimhassan108@gmail.com",
+      "contactNo": "8909878965",
+      "userRole": 1,
+      "filePath": "Files/dp.png",
+      "status": 1,
+      "createdOn": "2025-11-28T00:00:00-08:00"
+    },
+    {
+      "id": "8842c7e4-cc61-4fac-b681-6228409cfc08",
+      "userName": "huzaib112",
+      "name": "huzaib",
+      "gender": 1,
+      "email": "huzaib12@gmail.com",
+      "contactNo": "1122323332",
+      "userRole": 1,
+      "filePath": "Files/dp.png",
+      "status": 1,
+      "createdOn": "2025-12-02T00:00:00-08:00"
+    },
+    {
+      "id": "314580d9-a619-4736-a6e8-8720c59c838c",
+      "userName": "saba",
+      "name": "Saba Malik",
+      "gender": 2,
+      "email": "saba@gmail.com",
+      "contactNo": "9419001122",
+      "userRole": 1,
+      "filePath": "Files/dp.png",
+      "status": 1,
+      "createdOn": "2025-11-27T00:00:00-08:00"
+    },
+    {
+      "id": "c7bb7b52-8ad7-4d05-965b-ae615e5d7614",
+      "userName": "sami",
+      "name": "sami",
+      "gender": 1,
+      "email": "samiaullah1+01@gmail.com",
+      "contactNo": "8825084050",
+      "userRole": 1,
+      "filePath": "Files/dp.png",
+      "status": 1,
+      "createdOn": "2023-08-25T00:00:00+05:30"
+    },
+    {
+      "id": "8435bdf4-5dca-4f26-bdb9-b445882b696d",
+      "userName": "asim",
+      "name": "asim",
+      "gender": 1,
+      "email": "asim@gmail.com",
+      "contactNo": "676767676788",
+      "userRole": 1,
+      "filePath": "Files/dp.png",
+      "status": 1,
+      "createdOn": "2025-11-28T00:00:00-08:00"
+    },
+    {
+      "id": "2b0432fe-ac8b-41e7-a4cd-b4eba12d350d",
+      "userName": "hadi21",
+      "name": "Hadi Ibraheem",
+      "gender": 1,
+      "email": "hadiibraheem12@gmail.com",
+      "contactNo": "1234323456",
+      "userRole": 1,
+      "filePath": "Files/dp.png",
+      "status": 1,
+      "createdOn": "2025-11-28T00:00:00-08:00"
+    },
+    {
+      "id": "c368bf1c-1394-4725-a3d2-f98b00485cee",
+      "userName": "asmat",
+      "name": "asmat",
+      "gender": 1,
+      "email": "asmat@gmail.com",
+      "contactNo": "876867888876",
+      "userRole": 1,
+      "filePath": "Files/dp.png",
+      "status": 1,
+      "createdOn": "2025-11-28T00:00:00-08:00"
+    }
+  ]
+}
