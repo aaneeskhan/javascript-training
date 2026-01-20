@@ -23,6 +23,22 @@
         <label for="contactNo">Contact No</label>
         <input id="contactNo" type="text" >
     </div>
+    <div>
+    <label for="name">Name</label>
+    <input id="name" type="text">
+</div>
+
+<div>
+    <label for="gender">Gender</label>
+    <input id="gender" type="text">
+</div>
+
+<div>
+    <label for="userRole">User Role</label>
+    <input id="userRole" type="text">
+</div>
+
+
   
     <script>
         let id = window.location.search.substring(window.location.search.indexOf('?') + 1);
@@ -38,6 +54,9 @@
                 document.getElementById('userName').value = account.name;
                 document.getElementById('email').value = account.email;
                 document.getElementById('contactNo').value = account.contactNo;
+                document.getElementById('name').value = account.name;
+                document.getElementById('gender').value = account.gender;
+                document.getElementById('userRole').value = account.userRole;
 
             }
         });
