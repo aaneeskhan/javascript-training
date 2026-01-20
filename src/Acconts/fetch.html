@@ -35,7 +35,11 @@
                 <td>Profile Pic</td>
             </tr>
         </thead>
-        <tbody id="tbody"></tbody>
+        <tbody id="tbody">
+            <td>
+                
+            </td>
+        </tbody>
       </table>   
     </div>
 
@@ -58,12 +62,11 @@
                         <td>${account.name}</td>
                         <td>${account.email}</td>
                         <td>${account.contactNo}</td>
-                         <td>
-      <a href="details.html?${account.id}">View Details</a>
-    </td>
                         <td>
                             <img src="${baseUrl}${account.filePath}" alt="" >
                             </td>
+                            <td><a href="details.html?${account.id}">View Details</a></td>
+                            // <td><a href="${baseUrl}api/accounts/search/${account.name}">View name</a></td>
                         `;
                         tbody.appendChild(tr);
                     });

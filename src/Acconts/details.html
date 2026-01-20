@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <label for="id">id</label>
+    <input id="id" type="text" > 
+</div>
+<div>
+    <label for="userName">User Name</label>
+    <input id="userName" type="text" >
+
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input id="email" type="text" >
+    </div>
+    <div>
+        <label for="contactNo">Contact No</label>
+        <input id="contactNo" type="text" >
+    </div>
+  
+    <script>
+        let id = window.location.search.substring(window.location.search.indexOf('?') + 1);
+         fetch(`https://trekdekashmirapi.logichubss.com/api/accounts/${id}`, {
+            method:'GET'
+        }).then(response=>{
+            return response.json();
+        }).then(data=>{
+            console.log(data);
+            if(data.isSuccess){
+                const account = data.result;
+                document.getElementById('id').value = account.id;
+                document.getElementById('userName').value = account.name;
+                document.getElementById('email').value = account.email;
+                document.getElementById('contactNo').value = account.contactNo;
+
+            }
+        });
+
+    </script>
+</body>
+</html>
