@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myImage{
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+      <h1>Acccount Details</h1>
+            <div>
+                    <img src="" alt="" id="myImage">
+           </div>
+       <div id="accountDetails">
+         
+           <!-- <div>
+                    <p id="userName"></p>
+                    <p id="name"></p>
+                    <p id="email"></p>
+                    <p id="contactNo"></p>
+                    <p id="gender"></p>
+                    <p id="userRole"></p>
+                    <p id="status"></p>
+
+           </div> -->
+       </div>
+
+
+      <script>
+
+       
+          const baseUrl='https://trekdekashmirapi.logichubss.com/';
+
+          function loadAccountDetails(){
+              const urlParams = new URLSearchParams(location.search);
+              const id = urlParams.get('id');
+              console.log(id);
+
+              fetch(baseUrl+'api/accounts/'+id,{
+                  method:'GET'
+              }).then(response=>{
+                  return response.json();
+              }).then(data=>{
+                  console.log(data);
+                  if(data.isSuccess){
+                      const account = data.result;
+                      document.querySelector("#myImage").src = baseUrl + account.filePath;
+                      document.querySelector('#accountDetails').innerHTML += `
+                      <p>UserName: ${account.userName}</p>
+                      <p>Name: ${account.name}</p>
+                      <p>Email: ${account.email}</p>
+                      <p>Contact No: ${account.contactNo}</p>
+                      <p>Gender: ${account.gender == 1 ? 'Male' : account.gender == 2 ? 'Female' : 'Other'}</p>
+                        <p>User Role: ${account.userRole == 1 ? 'Admin' : account.userRole == 2 ? 'Client' :  'Guide'}</p>
+                        <p>Status: ${account.status == 1 ? 'Active' : 'Inactive'}</p>
+                      `;
+                  } else {
+                        document.querySelector('#accountDetails').innerHTML += `<p>Failed to load account details.</p>`;
+                  }
+              });
+          }
+
+          loadAccountDetails();
+      </script>
+</body>
+</html>

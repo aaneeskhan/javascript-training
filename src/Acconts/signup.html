@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Signup Form</h1>
+    <form id="signupForm">
+        <div>
+            <label for="userName">User Name:</label>
+            <input type="text" id="userName" name="userName" required>
+        </div>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="contactNo">Contact No:</label>
+            <input type="text" id="contactNo" name="contactNo" required>
+        </div>
+        <div>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Other</option>
+            </select>
+        </div>
+
+          <div>
+            <label for="userRole">Gender:</label>
+            <select id="userRole" name="userRole" required>
+                    <option value="">Select Role</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Client</option>
+                    <option value="3">Guide</option>
+            </select>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+          <div>
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+        <div>
+            <button type="submit">Sign Up</button>  
+        </div>
+    </form>
+
+
+    <script>
+        const baseUrl='https://trekdekashmirapi.logichubss.com/';
+
+        const signupForm= document.getElementById('signupForm');
+      signupForm.addEventListener('submit', function(event){
+            event.preventDefault();
+
+            const formData= new FormData(signupForm);
+            const formDataObj=Object.fromEntries(formData);
+          
+            console.log(formDataObj);
+
+            const jsonObject=JSON.stringify(formDataObj);
+            console.log(jsonObject);
+            fetch(baseUrl+'api/accounts/signup',{
+                method:'POST',
+                body:jsonObject,
+                headers:{
+                    'Content-Type':'application/json',
+                }
+            }).then(response=>{
+                return response.json();
+            }).then(data=>{
+                console.log(data);
+                if(data.isSuccess){
+                    alert('Signup Successful!');
+                    signupForm.reset();
+                } else {
+                    alert('Signup Failed: ' + data.message);
+                }
+            }).catch(error=>{
+                console.error('Error:', error);
+                alert('An error occurred during signup.');
+            });
+        });
+    </script>
+</body>
+</html>

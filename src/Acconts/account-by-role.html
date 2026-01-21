@@ -33,6 +33,7 @@
                 <td>Email</td>
                 <td>ContactNo</td>
                 <td>Profile Pic</td>
+                <td>Action</td>
             </tr>
         </thead>
         <tbody id="tbody"></tbody>
@@ -40,6 +41,13 @@
     </div>
 
     <script>
+        // Http Verbs
+        //  1) GET      Read
+        //  2) POST     create
+        //  3) PUT      Update
+        //  4) DELETE   Delete
+
+        // CREATE READ UPDATE DELETE   => CRUD  
             const baseUrl='https://trekdekashmirapi.logichubss.com/';
             function loadAccountsInfomations() {
               fetch(baseUrl+'api/accounts/by-role?userRole=1', {
@@ -61,6 +69,9 @@
                         <td>
                             <img src="${baseUrl}${account.filePath}" alt="" >
                             </td>
+                          <td><a href="details.html?id=${account.id}">Details</a></td>
+                        
+
                         `;
                         tbody.appendChild(tr);
                     });
