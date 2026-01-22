@@ -59,15 +59,22 @@
 
     <script>
         const baseUrl='https://trekdekashmirapi.logichubss.com/';
-
-        const signupForm= document.getElementById('signupForm');
-      signupForm.addEventListener('submit', function(event){
+            // CRUD 
+           
+            // CREATE  POST
+            // READ    GET
+            // UPDATE  PUT
+            // DELETE  DELETE
+        // signupForm == this    signupForm 10000
+      document.getElementById('signupForm').addEventListener('submit', function(event){
             event.preventDefault();
-
-            const formData= new FormData(signupForm);
+            const formData= new FormData(this);
             const formDataObj=Object.fromEntries(formData);
+            formDataObj.userRole=parseInt(formDataObj.userRole);
+            formDataObj.gender=parseInt(formDataObj.gender);
           
             console.log(formDataObj);
+            
 
             const jsonObject=JSON.stringify(formDataObj);
             console.log(jsonObject);
@@ -76,6 +83,7 @@
                 body:jsonObject,
                 headers:{
                     'Content-Type':'application/json',
+                    'Accept':'application/json'
                 }
             }).then(response=>{
                 return response.json();

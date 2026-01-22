@@ -49,8 +49,10 @@
 
         // CREATE READ UPDATE DELETE   => CRUD  
             const baseUrl='https://trekdekashmirapi.logichubss.com/';
+           
+           
             function loadAccountsInfomations() {
-              fetch(baseUrl+'api/accounts/by-role?userRole=1', {
+              fetch(baseUrl+'api/accounts/by-role?userRole=2', {
                     method:'GET'
                 }).then(response=>{
                     return response.json();

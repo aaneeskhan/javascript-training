@@ -49,6 +49,7 @@
                   return response.json();
               }).then(data=>{
                   console.log(data);
+                  
                   if(data.isSuccess){
                       const account = data.result;
                       document.querySelector("#myImage").src = baseUrl + account.filePath;
