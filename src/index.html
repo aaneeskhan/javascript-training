@@ -7,7 +7,61 @@
 </head>
 <body>
     <h1>Welcome to js</h1>
+    <!-- 
+            1) tea kashmiri tea
+            2) rice
+            3) bread
+            4) prepare meat
+            5) make salad
+            6) serve
+            7) wash dishes
+            8) clean kitchen and rooms
+            9) wash clothes
+            10) iron clothes
+            11) go to market
+            12) pay bills
 
-    
+    -->
+
+    <script>
+
+            async  function loadUsers(){
+
+
+               const response=   await   fetch("https://trekdekashmirapi.logichubss.com/api/accounts/by-role?id=1",{
+                        method:"GET",
+                        headers:{
+                            "accepts":"application/json"
+                        }
+                })
+                const data=   await   response.json();
+                console.log("data received",data.result);
+
+
+
+
+
+            //    const dataProm=    responseProm.then((response)=>{
+            //        return response.json();
+                  
+            //     })
+
+            //     dataProm.then((data)=>{
+            //         console.log("data received",data.result);
+            //     })
+
+            //     responseProm.catch((error)=>{
+            //         console.log("error occurred",error);
+            //     })
+
+            //     dataProm.catch((error)=>{
+            //         console.log("error in data processing",error);
+            //     })
+            }
+
+
+              loadUsers();
+              loadUsers1();
+            </script>
 </body>
 </html>
