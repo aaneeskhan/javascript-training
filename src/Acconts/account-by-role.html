@@ -37,7 +37,8 @@
             </tr>
         </thead>
         <tbody id="tbody"></tbody>
-      </table>   
+      </table> 
+      <div id="errorDiv"></div>  
     </div>
 
     <script>
@@ -51,40 +52,62 @@
             const baseUrl='https://trekdekashmirapi.logichubss.com/';
            
            
-            function loadAccountsInfomations() {
-              fetch(baseUrl+'api/accounts/by-role?userRole=2', {
-                    method:'GET'
-                }).then(response=>{
-                    return response.json();
-                }).then(data=>{
-                    console.log(data);
+           async  function loadAccountsInfomations() {
+
+            try{
+                let x=10;
+                let y=Number(prompt('Enter a number to divide 10'));
+                if(x <=0){
+                    throw new Error('X cannot be less than or equal to zero');
+                }
+                if(y===0){
+                    throw new Error('Y cannot be zero');
+                }
+                let z= x/y;
+                console.log('z value is ',z);
+              
+                const response=  await fetch(baseUrl+'api/accounts/by-role?userRole=2', {
+                                    method:'GET'
+                                });
+            
+                     const accounts=   await response.json();  
+                   
                     let tbody = document.getElementById('tbody');
-                    if(data.isSuccess){
-                        const accountList=   data.result;
-                        console.log(accountList);
-                     accountList.forEach(account => {
+                    if(accounts.isSuccess){
+                     
+                     accounts.result.forEach(account => {
                         let tr = document.createElement('tr');
                         tr.innerHTML = `
                         <td>${account.name}</td>
                         <td>${account.email}</td>
                         <td>${account.contactNo}</td>
                          <td>
-      <a href="details.html?${account.id}">View Details</a>
-    </td>
-                        <td>
-                            <img src="${baseUrl}${account.filePath}" alt="" >
+                            <a href="details.html?${account.id}">View Details</a>
                             </td>
-                          <td><a href="details.html?id=${account.id}">Details</a></td>
-                          <td><a href="address/addresses.html?id=${account.id}">Address</a></td>
-                        
-
+                                <td>
+                                    <img src="${baseUrl}${account.filePath}" alt="" >
+                                    </td>
+                                <td><a href="details.html?id=${account.id}">Details</a></td>
+                                <td><a href="address/addresses.html?id=${account.id}">Address</a></td>
                         `;
                         tbody.appendChild(tr);
-                    });
-                    }
                   
-                })
+                    })
+                    } else {
+                        tbody.innerHTML = '<tr><td colspan="5">No accounts found</td></tr>';
+                    }
+            }catch(error){
+                // console.error('Message: ', error.message);
+                // console.error('Trace: ', error.trace);
+                document.querySelector('#errorDiv').innerHTML = '<p style="color:red;">An error occurred while loading account information. Please try again later. our team is working on the issue if you have further query please contact helpdesk</p>';
+                 console.error('Error thrown here :',error);
+                 // log
+                //  LogError(error);
             }
+            finally{
+                console.log('Execution completed');
+            }
+        }
 
             loadAccountsInfomations();
 
