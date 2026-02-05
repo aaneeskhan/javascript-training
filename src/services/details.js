@@ -1,11 +1,13 @@
+import {BASE_API_URL} from"../../constants.js";
+
 let param = new URLSearchParams(location.search);
 let id = param.get("id");
 console.log(id);
 async function getAccountById(id) {
   let response = await fetch(
-    `https://trekdekashmirapi.logichubss.com/api/Accounts/${id}`,
+    `${BASE_API_URL}/Accounts/${id}`,
     {
-      mod: "GET",
+      method: "GET",
     },
   );
   let data = await response.json();
@@ -15,8 +17,6 @@ async function getAccountById(id) {
   document.querySelector("#name").value = obj.name;
   document.querySelector("#contact").value = obj.contactNo;
   document.querySelector("#email").value = obj.email;
-  document.querySelector("#editBtn").addEventListener("click", () => {
-    location.href = `edit.html?id=${id}`;
-  });
+
 }
 getAccountById(id);
