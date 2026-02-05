@@ -5,7 +5,11 @@ import { API_BASE_URL } from "../../constants.js";
 //3) functions
 //4) object
 //5) array
+// type       script
 
+y="hello"
+let x=10;
+x="hello";
 let myPersonalNumber = 100;
 const pi = 3.14;
 
