@@ -1,101 +1,31 @@
-import { API_BASE_URL } from "../../constants.js";
-
-//1) variable
-//2) const
-//3) functions
-//4) object
-//5) array
-
-let myPersonalNumber = 100;
-const pi = 3.14;
-
-export   default async function getAllAccountsByRole(role) {
-  const response = await fetch(
-    API_BASE_URL + "api/accounts/by-role?userRole=" + role,
+import { BASE_API_URL } from "../../constants.js";
+async function getAccountByRole(role) {
+  let response = await fetch(
+    `${BASE_API_URL}accounts/by-role?userRole=${role}`,
     {
       method: "GET",
-      headers: {
-        "content-type": "application/json",
-        LH: "Logic Hub Software Solutions",
-      },
     },
   );
 
-  return await response.json();
+  let data = await response.json();
+  console.log(data);
+
+  let arr = data.result;
+
+  arr.forEach((element) => {
+    let tr = "";
+    tr += `
+      <tr>
+        <td>${element.name}</td>
+        <td>${element.contactNo}</td>
+        <td>${element.email}</td>
+        <td>
+          <a href="./details.html?id=${element.id}">details</a>
+        </td>
+      </tr>
+    `;
+    document.querySelector("#tbody").innerHTML += tr;
+  });
 }
 
-
-
-
-const employee = {
-  id: 101,
-  name: "ifra",
-  salary: 50000,
-};
-
-const employeeList = [
-  {
-    id: 101,
-    name: "ifra",
-    salary: 50000,
-  },
-  {
-    id: 102,
-    name: "shilpee",
-    salary: 50000,
-  },
-  {
-    id: 103,
-    name: "mehvish",
-    salary: 50000,
-  },
-  {
-    id: 104,
-    name: "aqsa",
-    salary: 50000,
-  },
-  {
-    id: 101,
-    name: "ifra",
-    salary: 50000,
-  },
-  {
-    id: 101,
-    name: "ifra",
-    salary: 50000,
-  },
-  {
-    id: 101,
-    name: "ifra",
-    salary: 50000,
-  },
-];
-
-function add(x, y) {
-  return x + y;
-}
-
-function sub(x, y) {
-  return x - y;
-}
-function mul(x, y) {
-  return x * y;
-}
-function div(x, y) {
-  return x / y;
-}
-function mod(x, y) {
-  return x % y;
-}
-
-export {
-  myPersonalNumber,
-  pi,
-  add,
-  sub,
-  mul,
-  div,
-  mod,
-  employee,
-  employeeList,
-};
+getAccountByRole(1);

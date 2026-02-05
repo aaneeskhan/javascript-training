@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+   <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 350px;
+      margin: 40px auto;
+      padding: 15px;
+      border: 1px solid;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid;
+    }
+
+    .row {
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    input {
+      width: 100%;
+      padding: 6px;
+      border: 1px solid;
+    }
+  </style>
+
+
+<>
+
+  <div class="container">
+    <h2>Account Details</h2>
+
+    <div class="row">
+      <label>Name</label>
+      <input type="text" id="name">
+    </div>
+
+    <div class="row">
+      <label>Contact</label>
+      <input type="text" id="contact">
+    </div>
+
+    <div class="row">
+      <label>Email</label>
+      <input type="text" id="email">
+    </div>
+  </div>
+
+ 
+  <script type="module" src="../services/accountDetailService.js"></script>
+
+
+</body>
+</html>

@@ -1,1 +1,1 @@
-export const API_BASE_URL="https://trekdekashmirapi.logichubss.com/";
+export const BASE_API_URL = "https://trekdekashmirapi.logichubss.com/api/";
