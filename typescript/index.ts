@@ -3,6 +3,10 @@
 // string 
 // boolean
 // any
+// void
+// never
+
+
 
 let x:number=10;
 let num:number;
@@ -15,13 +19,14 @@ let isActive:boolean;
 isActive=true;
 
 
-let result:string | number | boolean;
+let result: number ;
 
-const sum =  (x:number,y:number)=>{
-    let res= x+y;
-    //  return res;
-     return "Hello"
+const sum =  (x:number,y:number):number =>{
+     let res= x+y;
+     return res;
+    // return "Hello"
 }
  result= sum(60,20);
  console.log(result)
+
 
