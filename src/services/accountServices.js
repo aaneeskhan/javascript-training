@@ -7,6 +7,7 @@ import { API_BASE_URL } from "../../constants.js";
 //5) array
 // type       script
 
+let a;
 y="hello"
 let x=10;
 x="hello";

@@ -1,5 +1,27 @@
-console.log("hello Logic Hub Sotudent");
+// core type primitive type
+// number   int and float
+// string 
+// boolean
+// any
 
-let x:number=100;
-let y:number=200;
-let z:number=900;
+let x:number=10;
+let num:number;
+num=90;
+
+let str:string;
+str="Logic Hub";
+
+let isActive:boolean;
+isActive=true;
+
+
+let result:string | number | boolean;
+
+const sum =  (x:number,y:number)=>{
+    let res= x+y;
+    //  return res;
+     return "Hello"
+}
+ result= sum(60,20);
+ console.log(result)
+
