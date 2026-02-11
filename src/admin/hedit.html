@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Details Form</title>
+  <link rel="stylesheet" href="../../styles/profile.css">
+ 
+<body>
+<div class="form-container">
+  <h2>Edit Hotel Details</h2>
+  
+  <form id="addressForm">
+    <div>
+      <label for="id">File </label>
+      <input type="id" name="id" id="id" readonly style="background-color: rgb(87, 86, 86); color: beige;">
+    </div>
+    
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required>
+    </div>
+    <div>
+      <label for="star">Star</label>
+      <input type="number" name="star" id="star" min="1" max="7" required>
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <textarea name="description" id="description" required></textarea>
+    </div>
+ 
+    <button type="submit">Submit</button>
+    <p id="msg"></p>
+  </form>
+  </div>
+<script src="../../services/hotels/hedit.js"></script>
+</body>
+</html>
