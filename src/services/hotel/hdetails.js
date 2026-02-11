@@ -51,6 +51,5 @@ async function run() {
     });
 }
 run();
-document.querySelector("#vid").addEventListener("click", function (e) {
-  window.location.href = `./hvideo.html?id=${id}`;
-});
+
+

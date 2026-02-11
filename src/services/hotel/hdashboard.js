@@ -13,7 +13,7 @@ async function run() {
                 <td>${element.state}</td>
                 <td>${element.city}</td>
                 <td id="dt">
-                <a href="hotel/hdetails.html?id=${element.id}"> details </a>
+                <a href="./hdetails.html?id=${element.id}"> details </a>
                 </td>
             `;
       document.querySelector("#tbody").appendChild(tr);
