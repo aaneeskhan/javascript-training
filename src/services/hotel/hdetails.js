@@ -15,8 +15,11 @@ async function run() {
     let element = data.result;
 
     document.querySelector("#id").value = element.id;
+    document.querySelector("#name").value = element.name;
     document.querySelector("#description").value = element.description;
-    document.querySelector("#addressId").value = element.addressId;
+    document.querySelector("#state").value = element.state;
+    document.querySelector("#city").value = element.city;
+    document.querySelector("#star").value = element.star;
     document.querySelector("#landmark").value = element.landmark;
     document.querySelector("#pincode").value = element.pincode;
     document.querySelector("#addressLine").value = element.addressLine;

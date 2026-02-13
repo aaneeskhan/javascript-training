@@ -1,6 +1,7 @@
 let params = new URLSearchParams(window.location.search);
 let id = params.get("id");
 console.log(id);
+
 async function run() {
   let res = await fetch(
     `https://trekdekashmirapi.logichubss.com/api/Hotels/${id}`,
@@ -9,6 +10,8 @@ async function run() {
     },
   );
   let data = await res.json();
+  console.log(data);
+  
 
   if (data.isSuccess) {
     let element = data.result;
@@ -32,7 +35,6 @@ async function run() {
       {
         method: "PUT",
         headers: {
-          accept: "text/plain",
           "Content-Type": "application/json",
         },
         body: body,
@@ -42,7 +44,7 @@ async function run() {
     console.log(dat);
 
     if (dat.isSuccess) {
-      alert("change successfull");
+      alert("change successful");
     }
   });
 }
