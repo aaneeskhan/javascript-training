@@ -1,6 +1,9 @@
 
 // base type OR super type OR parent type
 // derived type OR sub  type OR child type
+
+import { Calc } from "./classdemo.js"
+
 // generalization and specialization
 interface Human{
    readonly id:string,
@@ -51,29 +54,33 @@ interface robot extends Men, Women{
 
 }
 
-let obj:robot={
-    name:"Aqsa",
-    age:20,
-    address:"barzulla",
-    email:"aqsa@gmail.com",
-    cooking:"meat",
-    show1(){
-        console.log("show1 called")
-    },
-    show3() {
-        console.log("show3 called")
-    },
-    washing:"closthes",
-    games:"",
-    salary:50000,
-    show2() {
+
+let calc=new Calc();
+calc.sum(100,300)
+
+// let obj:robot={
+//     name:"Aqsa",
+//     age:20,
+//     address:"barzulla",
+//     email:"aqsa@gmail.com",
+//     cooking:"meat",
+//     show1(){
+//         console.log("show1 called")
+//     },
+//     show3() {
+//         console.log("show3 called")
+//     },
+//     washing:"closthes",
+//     games:"",
+//     salary:50000,
+//     show2() {
         
-    },
-    run(){
+//     },
+//     run(){
         
-    },
+//     },
   
-}
+// }
 
 // condition Relationship
 // inheritance  is a relationship
